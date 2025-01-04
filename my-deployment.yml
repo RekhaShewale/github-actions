@@ -1,4 +1,3 @@
-
 name: CI-CD
 ON: 
 	push:
@@ -14,5 +13,5 @@ jobs:
 			run:
 				docker build -t myimage
 				docker tag myimage rekha94/myimage
-				echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u "${{secrets.DOCKERHUB_USERNAME}}" --password-stdin
+				echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u "${{sectrets.DOCKERHUB_USERNAME}}" --password-stdin
 				docker push rekha94/myimage
