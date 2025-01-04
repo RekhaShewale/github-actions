@@ -1,6 +1,5 @@
-
 name: CI-CD
-ON: 
+on: 
 	push:
 		branches:
 		- main
@@ -8,9 +7,9 @@ jobs:
 	myapp-deployment:
 		runs-on: ubuntu-latest
 		steps:
-		-name: Checkout code   
-		 uses: actions/checkout@v2
-		-name: Buid and Push Docker image
+		- name: Checkout code   
+		  uses: actions/checkout@v2
+		- name: Buid and Push Docker image
 			run:
 				docker build -t myimage
 				docker tag myimage rekha94/myimage

@@ -1,0 +1,17 @@
+name: CI-CD
+ON: 
+	push:
+		branches:
+		- main
+jobs:
+	myapp-deployment:
+		runs-on: ubuntu-latest
+		steps:
+		-name: Checkout code   
+		 uses: actions/checkout@v2
+		-name: Buid and Push Docker image
+			run:
+				docker build -t myimage
+				docker tag myimage rekha94/myimage
+				echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u "${{sectrets.DOCKERHUB_USERNAME}}" --password-stdin
+				docker push rekha94/myimage
